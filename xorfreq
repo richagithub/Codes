@@ -1,0 +1,24 @@
+ int N,i,j,k;
+    cin >>N;
+
+    for(i=0;i<N;i++)
+        cin >>a[i];
+
+    for(i=0;i<N;i++)
+    {
+        for(j=0;j<=127;j++)             //1st part
+        temp[j]=0;
+
+        for(j=0;j<=127;j++)            //2nd part
+            {   
+                temp[j^a[i]]=(temp[j^a[i]]%mod+freq[j]%mod)%mod;
+               
+            }
+           
+        for(j=0;j<=127;j++)            //3rd part
+            {freq[j]=(freq[j]%mod+temp[j]%mod)%mod;
+            }
+          
+        freq[a[i]]=(freq[a[i]]+1)%mod;   //4rt part
+     
+    }
