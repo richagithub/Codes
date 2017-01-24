@@ -6,7 +6,7 @@
 #define MAX 100
 using namespace std;
 
-bool v[MAX];
+bool v[MAX]; // visited elements
 int len, sp[MAX];
 
 void Sieve(){
