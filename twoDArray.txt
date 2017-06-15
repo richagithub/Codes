@@ -1,0 +1,52 @@
+LINK: https://stackoverflow.com/questions/4470950/why-cant-we-use-double-pointer-to-represent-two-dimensional-arrays
+________________________________________________________________________________________________________________________________
+
+I'm going to try to draw how
+
+int array[10][6];
+
+and
+
+int **array2 = new int *[10];
+for (int i = 0; i < 10; ++i)
+    array2[i] = new int[6]
+
+look like in the memory and how they are different (And that they can't be cast to each other)
+
+array looks like:
+
+ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+| | | | | | | | | | | | | ..............| | | (10*6 elements of type int)
+ - - - - - - - - - - - - - - - - - - - - - -
+< first row >< second row> ...
+
+array2 looks like:
+
+ _ _ _ _ _ _ _ _ _ _ 
+| | | | | | | | | | | (10 elements of type int *)
+ - - - - - - - - - - 
+ | |     ....      |     _ _ _ _ _ _
+ | |                \-->| | | | | | | (6 elements of type int)
+ | |                     - - - - - -
+ | |
+ | |      _ _ _ _ _ _
+ |  \ -->| | | | | | | (6 elements of type int)
+ |        - - - - - -
+ |
+ |
+ |      _ _ _ _ _ _
+  \ -->| | | | | | | (6 elements of type int)
+        - - - - - -
+
+When you say array[x][y], it translates into *(((int *)array)+x*6+y)
+
+While, when you say array2[x][y], it translates into *(*(array2+x)+y)
+
+That is, a static 2d array is in fact a 1d array with rows put in one line. The index is calculated by the formula row * number_of_columns_in_one_row + column.
+
+A dynamic 2d array, however is just a 1d array of pointers. Each pointer then is dynamically allocated to point to another 1d array. In truth, that pointer could be anything. Could be NULL, or pointing to a single variable, or pointing to another array. And each of those pointers are set individually, so they can have different natures.
+
+If you need to pass the pointer of array somewhere, you can't cast it to int ** (imagine what would happen. The int values of the cells of array are interpreted as pointers and dereferenced -> Bam! Segmentation fault!). You can however think of array as a 1d array of int [6]s; that is a 1d array of elements, with type int [6]. To write that down, you say
+
+int (*p)[6] = array;
+
