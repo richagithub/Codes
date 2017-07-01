@@ -38,7 +38,7 @@ getline(iss, spouse, ';')
 
 
 /*  ----------- 4---------- */      // LINK->  http://www.cplusplus.com/faq/sequences/strings/split/
-IOSTREAM and GETLINE
+IOSTREAM and GETLINE()
 The simplest method of tokenizing strings in C++ is to use the standard iostream capabilities. The std::getline() function has a very rudimentary capacity to break strings up using a single delimiter character each time you call the function.
 
 AN IMPORTANT WARNING ABOUT THE EXAMPLE CODE 
