@@ -1,0 +1,89 @@
+/*  https://stackoverflow.com/questions/236129/split-a-string-in-c   */
+
+/*  ----------- 1---------- */
+char sep = ' ';
+std::string s="1 This is an example";
+
+for(size_t p=0, q=0; p!=s.npos; p=q)
+  std::cout << s.substr(p+(p!=0), (q=s.find(sep, p+1))-p-(p!=0)) << std::endl;
+  
+/*  ----------- 2---------- */
+ #include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <iterator>
+
+int main() {
+    using namespace std;
+    string sentence = "And I feel fine...";
+    istringstream iss(sentence);
+    copy(istream_iterator<string>(iss),
+         istream_iterator<string>(),
+         ostream_iterator<string>(cout, "\n"));
+}
+
+ 
+ /* ----------- 3---------- */
+The stringstream can be convenient if you need to parse the string by non-space symbols:
+
+string s = "Name:JAck; Spouse:Susan; ...";
+string dummy, name, spouse;
+
+istringstream iss(s);
+getline(iss, dummy, ':');
+getline(iss, name, ';');
+getline(iss, dummy, ':');
+getline(iss, spouse, ';')
+
+
+/*  ----------- 4---------- */      // LINK->  http://www.cplusplus.com/faq/sequences/strings/split/
+IOSTREAM and GETLINE
+The simplest method of tokenizing strings in C++ is to use the standard iostream capabilities. The std::getline() function has a very rudimentary capacity to break strings up using a single delimiter character each time you call the function.
+
+AN IMPORTANT WARNING ABOUT THE EXAMPLE CODE 
+Because getline() is designed to ignore empty fields at the end of input, we must do something very brash – something that is often the Wrong Thing to do – and loop on EOF. In this case, though, it is actually the Right Thing to do, as we want the odd behavior and we are being very careful to get it.
+
+The basic algorithm to print every field to the standard output is this:
+
+string s = "string, to, split";
+istringstream ss( s );
+while (!ss.eof())         // See the WARNING above for WHY we're doing this!
+{
+  string x;               // here's a nice, empty string
+  getline( ss, x, ',' );  // try to read the next field into it
+  cout << x << endl;      // print it out, EVEN IF WE ALREADY HIT EOF
+}
+
+Let’s put that into a convenient function that splits a string into a container of your choice (such as a std::vector). Let’s also add the ability to elide (or omit) empty fields. Here is the complete code.
+
+#include <sstream>
+#include <string>
+
+struct split
+{
+  enum empties_t { empties_ok, no_empties };
+};
+
+template <typename Container>
+Container& split(
+  Container&                                 result,
+  const typename Container::value_type&      s,
+  typename Container::value_type::value_type delimiter,
+  split::empties_t                           empties = split::empties_ok )
+{
+  result.clear();
+  std::istringstream ss( s );
+  while (!ss.eof())
+  {
+    typename Container::value_type field;
+    getline( ss, field, delimiter );
+    if ((empties == split::no_empties) && field.empty()) continue;
+    result.push_back( field );
+  }
+  return result;
+}
+
+
+
+
