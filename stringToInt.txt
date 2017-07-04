@@ -1,0 +1,10 @@
+bool str2int (int &i, char const *s)
+{
+    std::stringstream ss(s);
+    ss >> i;
+    if (ss.fail()) {
+        // not an integer
+        return false;
+    }
+    return true;
+}
