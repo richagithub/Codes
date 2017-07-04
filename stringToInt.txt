@@ -8,3 +8,23 @@ bool str2int (int &i, char const *s)
     }
     return true;
 }
+
+/*
+  Converts the string to int 
+  but it also gives true for:
+  str2int(i, "1337h4x0r") will happily return true and i will get the value 1337.
+   
+   to sove it use:
+   bool str2int (int &i, char const *s)
+{
+    char              c;
+    std::stringstream ss(s);
+    ss >> i;
+    if (ss.fail() || ss.get(c)) {
+        // not an integer
+        return false;
+    }
+    return true;
+}
+
+*/
