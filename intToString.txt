@@ -1,0 +1,21 @@
+1. Use stringstreams:
+
+   std::stringstream ss;
+   ss << age;
+   std::cout << name << ss.str() << std::endl;
+ 
+  //with IOStreams
+     std::stringstream sstm;
+     sstm << name << age;
+     result = sstm.str();
+     
+2. Use sprintf or snprintf from the C library.
+
+   char buffer[128];
+   snprintf(buffer, sizeof(buffer), "%s%d", name.c_str(), age);
+   std::cout << buffer << std::endl;
+
+3. Use to_string(int)
+
+   int k=10;
+   string ss="a"+to_string(k);
