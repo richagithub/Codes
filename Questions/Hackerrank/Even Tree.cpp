@@ -7,7 +7,7 @@
 #include <stdlib.h>
 using namespace std;
 int countt; //countt is no of even parts
-int dfs(int v, bool visit[], vector<int> adj[])
+int dfs(int v, bool visit[], vector<int> adj[])//dfs returns no. of nodes in subtree
     {
         //cout<<v<<endl;
         visit[v]=true;
