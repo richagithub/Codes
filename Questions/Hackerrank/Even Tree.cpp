@@ -70,3 +70,9 @@ int main() {
 
     return 0;
 }
+
+/*
+
+Try to find the no. of nodes in subtree. if a subtree has even no. of nodes , just detach it.
+
+*/
