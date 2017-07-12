@@ -1,4 +1,8 @@
-   #include<stdio.h>
+/*  JULY 17
+    LONG CHALLENGE
+    Author: Richa 
+    */
+    #include<stdio.h>
     #include<math.h>
     #include<stdlib.h>
     #include<string.h>
