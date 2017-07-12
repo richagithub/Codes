@@ -5,4 +5,19 @@
     <br>302 efficient solutions to HackerRank problems
 </p>
 
-*
+
+* Strings
+* Graphs
+
+# Strings
+| Sr |  Challenge   | Solution |
+|:---:|:---:|:--:|
+|  1  |  [Seperate the Numbers](https://www.hackerrank.com/challenges/separate-the-numbers)   |  [solution.cpp](https://github.com/richagithub/Codes/blob/master/Questions/Hackerrank/Seperate_the_numbers.cpp)  |
+|  2  |  [Weighted Unifrom Strings](https://www.hackerrank.com/challenges/weighted-uniform-string/problem)   |  [solution.cpp](https://github.com/richagithub/Codes/blob/master/Questions/Hackerrank/Weighted_Uniform_String.cpp)  |
+|  3  |    |    |
+|  4  |    |    |
+
+# Graphs
+| Sr |  Challenge   | Solution |
+|:---:|:---:|:--:|
+|  1  |  [Even Tree](https://www.hackerrank.com/challenges/even-tree)  |  [solution.cpp](https://github.com/richagithub/Codes/blob/master/Questions/Hackerrank/Even%20Tree.cpp)  |
