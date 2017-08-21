@@ -1,4 +1,6 @@
 /*
+Hackerrank Challenge :     Goldman Sachs CodeSprint 
+
 Question: we have n-length array. On each day we can buy upto ith no. of stocks costing arr[i] dollars. 
 If the customer has an amount of k dollars initially, find out the maximum number of stocks they can buy? 
 
