@@ -17,7 +17,7 @@ using namespace std;
 void mycomp()
 {    
 }
-
+//MY MISTAKE I DID'NT USED long long int
 long long int buyMaximumProducts(int n,long long int k, vector< pair<long long int,long long int> > a[]) {
     // Complete this function
     int i=0;
