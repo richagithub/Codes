@@ -27,3 +27,9 @@
 | Sr |  Challenge   | Solution |  
 |:---:|:---:|:--:|
 |  1  |  [buy-maximum-stocks](https://www.hackerrank.com/contests/gs-codesprint/challenges/buy-maximum-stocks/problem)  |  [solution.cpp](https://github.com/richagithub/Codes/blob/master/Questions/Hackerrank/buy-maximum-stocks.cpp)  |    
+
+# Dynamic Programming  
+| Sr |  Challenge   | Solution |    
+|:---:|:---:|:--:|  
+|  1  |  [trader-profit](https://www.hackerrank.com/contests/gs-codesprint/challenges/trader-profit  |  [solution.cpp](https://github.com/richagithub/Codes/blob/master/Questions/Hackerrank/trader-profit.cpp)  |    
+
