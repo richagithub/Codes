@@ -8,6 +8,7 @@
 
 * Strings
 * Graphs
+* Greedy
 
 # Strings
 | Sr |  Challenge   | Solution |
