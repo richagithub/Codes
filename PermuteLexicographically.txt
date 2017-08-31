@@ -1,0 +1,77 @@
+How to permute a string and print in lexicographically order?
+Things to remember:
+   1  Sort the string;          // necessary to get LEXICOGRAPHICALLY
+   2  keep sorted string in an arry and use it for getting characters in sorted form
+   3  Dont send copy of use[] arry .... Send its pointer, because we need to know waht has been used ... try pen & paper to know how 
+      it works
+      
+
+CODE:// similar to anagram ques of karumanchi
+#include <iostream>
+#include <algorithm>
+#include <string.h>
+#include<string>
+using namespace std;
+
+void permute(char *p, int depth , char *st , bool *use)
+{
+	static int count=0;
+	int l=strlen(st);
+	if(depth== l)
+	  {
+	  	cout<< count++<<"\t";printf("%s\n",p);
+	  	return;
+	  }
+    
+	  int i=0;
+	 for(i=0;i<l;i++)
+	 {
+	 	if(!use[i])
+	 	{
+	 		use[i]=true;                //it is very neccessary TO USE SAME use[] ARRAY
+	 		p[depth]=st[i];
+	 		permute(p,depth+1,st,use);
+	 		use[i]=false;
+	 	}
+	 }
+	
+}
+
+
+int main() {
+char s[]="ABGS";       // for "ABGS" there are 4*3*2*1 = 4! = 24 orders.
+int l=strlen(s),i=0;
+bool use[l+2];
+for(i=0;i<l+2;i++)
+use[i]=false;
+char p[l+2];
+permute(p,0,s,use);
+return 0;
+}
+
+
+ OUTPUT:
+ 0	ABGS
+1	ABSG
+2	AGBS
+3	AGSB
+4	ASBG
+5	ASGB
+6	BAGS
+7	BASG
+8	BGAS
+9	BGSA
+10	BSAG
+11	BSGA
+12	GABS
+13	GASB
+14	GBAS
+15	GBSA
+16	GSAB
+17	GSBA
+18	SABG
+19	SAGB
+20	SBAG
+21	SBGA
+22	SGAB
+23	SGBA
