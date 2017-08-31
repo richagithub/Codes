@@ -1,0 +1,29 @@
+To sort String or char array in
+
+It can be easily done:
+For char array:-
+
+#include <iostream>
+#include <algorithm>
+#include <string.h>
+#include<string>
+using namespace std;
+
+int main() {
+	char s[]="kelly";
+	int l=strlen(s);
+	sort(s,s+l);
+	cout<< s;
+	return 0;
+}
+
+
+For String array:-
+
+int main() {
+	string s="kelly";
+	int l=s.length();
+	sort(s.begin(),s.end());
+	cout<< s;
+	return 0;
+}
