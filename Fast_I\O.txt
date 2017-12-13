@@ -1,0 +1,77 @@
+Methods
+1.   using scanf() , printf() is faster than cin, cout.
+2.   you can still use cin/cout and achieve the same speed as scanf/printf by including the following two lines in your main() function:
+
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        
+    It toggles on or off the synchronization of all the C++ standard streams with their corresponding standard C streams 
+    if it is called before the program performs its first input or output operation.
+    Adding ios_base::sync_with_stdio (false); (which is true by default) before any I/O operation avoids this synchronization.
+    It is a static member of function of std::ios_base.    
+    
+    tie() is a method which simply guarantees the flushing of std::cout before std::cin accepts an input. This is useful for interactive
+    console programs which require the console to be updated constantly but also slows down the program for large I/O. The NULL part just
+    returns a NULL pointer.
+    
+    #include <bits/stdc++.h>
+    using namespace std;
+
+    int main()
+    {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int a;
+    cin>> a;
+    cout<< a<<"\n";  //use "\n" instead of endl because endl forces a flushing stream, which is usually unnecessary
+    return 0;
+   }
+   
+   
+3.  For Higher Competative programmings : (ACM ICPC, Google CodeJam, TopCoder Open, )
+    SOURCE:  http://www.geeksforgeeks.org/fast-io-for-competitive-programming/
+    
+    void fastscan(int &number)
+    {
+    //variable to indicate sign of input number
+    bool negative = false;
+    register int c;
+ 
+    number = 0;
+ 
+    // extract current character from buffer
+    c = getchar();
+    if (c=='-')
+    {
+        // number is negative
+        negative = true;
+ 
+        // extract the next character from the buffer
+        c = getchar();
+    }
+ 
+    // Keep on extracting characters if they are integers
+    // i.e ASCII Value lies from '0'(48) to '9' (57)
+    for (; (c>47 && c<58); c=getchar())
+        number = number *10 + c - 48;
+ 
+    // if scanned input has a negative sign, negate the
+    // value of the input number
+    if (negative)
+        number *= -1;
+    }
+ 
+   // Function Call
+     int main()
+    {
+    int number;
+    fastscan(number);
+    cout << number << "\n";
+    return 0;
+    }
+ 
+ 
+4.  Using getchar_unlocked() :
+     http://www.geeksforgeeks.org/getchar_unlocked-faster-input-cc-competitive-programming/
+   
+    
