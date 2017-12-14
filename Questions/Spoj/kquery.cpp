@@ -4,7 +4,9 @@ Problem: http://www.spoj.com/problems/KQUERY/
 Solution: Offline(save all query in a vector) + sort(order by k) +
           Segment Tree(build tree, update tree, query tree)
 
-Explanition: 
+Explanition: After sorting , 
+             Type 1 query becomes simple update query
+	     Type 2 query becomes simple calculate sum of given range
 
 */
 
