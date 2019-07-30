@@ -4,3 +4,4 @@ Xor of even-no-of-set-bits number with odd-no-of-set-bits number :
 if we xor two xor-even numbers or two xor-odd numbers (numbers having an odd number of 1s in their binary representations),
 we get a xor-even number and,
 similarly, if we xor a xor-even number with a xor-odd number, we get a xor-odd number.
+[https://codingcompetitions.withgoogle.com/kickstart/round/0000000000051061/0000000000161426]
